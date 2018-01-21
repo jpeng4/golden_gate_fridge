@@ -34,7 +34,7 @@ export class HomePage {
      alert(this.upc_val);
   }    
 
-  view() {
+  /*view() {
     if(this.upc_val){
       this.http.get('https://api.upcitemdb.com/prod/trial/lookup?upc=' + this.upc_val)
       .map(res => res.json())
@@ -46,5 +46,5 @@ export class HomePage {
     } else {
       alert("Please Scan an Item");
     }
-  }
+  }*/
 }
