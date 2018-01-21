@@ -23,7 +23,7 @@ export class HomePage {
   url = null;
   code = null;
   val = "null";
-  value = "null";
+  value = null;
   option :BarcodeScannerOptions;
   constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner, public http:Http,
     private alertCtrl: AlertController) {
@@ -45,18 +45,16 @@ export class HomePage {
      // alert(this.upc_val);
   }
 
+  alert() {
+    alert("Hello");
+  }
+
     makeGetRequest() {
-      alert("HELLO");
       this.val = this.upc_val;
       this.url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + this.val;
       this.http.get(this.url)
       .subscribe(data => {
-          var alert = this.alertCtrl.create({
-              title: "Your IP Address",
-              subTitle: data.json().code,
-              buttons: ["close"]
-          });
-          alert.present();
+       this.value = data.json();
       }, error => {
           console.log(JSON.stringify(error.json()));
       });

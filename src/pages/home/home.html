@@ -16,10 +16,12 @@
       <h2>Format: {{data.format}}</h2>
       <h2>Text: {{data.text}}</h2>
 
+      <button ion-button (click)="alert()">Check Alert</button>
+
       <button ion-button (click)="makeGetRequest()">Encode Text</button> 
 
 
-      <h2>{{code}}</h2>
+      <h2>{{value}}</h2>
       <!--<ion-list>
           <ion-item *ngFor="let user of users">
               <h2>{{user.code}}</h2>
