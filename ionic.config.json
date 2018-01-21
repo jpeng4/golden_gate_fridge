@@ -1,4 +1,9 @@
 {
+  "proxies": [{
+   "path": "/goto",
+   "proxyUrl": "https://api.upcitemdb.com"
+}],
+
   "name": "ggf",
   "app_id": "ebf0f082",
   "type": "ionic-angular",
@@ -6,3 +11,5 @@
     "cordova": {}
   }
 }
+
+
