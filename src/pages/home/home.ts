@@ -26,7 +26,7 @@ export class HomePage {
       // Success! Barcode data is hered
       console.log(barcodeData);
       this.data = barcodeData;
-      alert(barcodeData.text);
+      // alert(barcodeData.text);
      }, (err) => {
          // An error occurred
          console.log(err);
