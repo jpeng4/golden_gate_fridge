@@ -25,7 +25,7 @@ export class HomePage {
   encodeData : string ;
   public people: any;
   encodedData : {} ;
-  data = { };
+  data = {};
   upc_val = null; //barcode
   url = null;
   code = null;
@@ -62,7 +62,7 @@ export class HomePage {
       this.url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + this.val;
 
       this.http.get(this.url).map(res => res.json()).subscribe(data=> {
-        this.posts = data.items.title;
+        this.posts = data.items[0].title;
         console.log(this.posts);
       });
 
