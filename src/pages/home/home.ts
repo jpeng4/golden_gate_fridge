@@ -21,19 +21,30 @@ export class HomePage {
   }
 
   scanner(){
-    console.log("Hello");
+    // console.log("Hello");
     this.barcodeScanner.scan().then((barcodeData) => {
       // Success! Barcode data is hered
       console.log(barcodeData);
       this.data = barcodeData;
-      alert(barcodeData);
+
       // alert(barcodeData.text);
      }, (err) => {
          // An error occurred
          console.log(err);
      });
      // alert(this.upc_val);
-  }    
+  }
+  
+  encodeText(){
+    this.barcodeScanner.encode(this.barcodeScanner.Encode.TEXT_TYPE,this.encodeData).then((encodedData) => {
+
+        console.log(encodedData);
+        this.encodedData = encodedData;
+
+    }, (err) => {
+        console.log("Error occured : " + err);
+    });                 
+  }
 
   /*view() {
     if(this.upc_val){

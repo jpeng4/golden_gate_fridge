@@ -16,6 +16,7 @@
       <h2>Format: {{data.format}}</h2>
       <h2>Text: {{data.text}}</h2>
 
-      <button ion-button (click)="view()">View</button>
+      <ion-input type="text" [(ngModel)]="encodeData" ></ion-input>   
+      <button ion-button (click)="encodeText()">Encode Text</button> 
 
   </ion-content>
