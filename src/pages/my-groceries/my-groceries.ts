@@ -47,7 +47,7 @@ export class MyGroceriesPage {
    }
 
    navToBarcodeScanner() {
-     this.navCtrl.setRoot(HomePage);
+     this.navCtrl.push(HomePage);
    }
 
 }
