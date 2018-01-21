@@ -74,7 +74,7 @@ export class HomePage {
 
 
     makeGetRequest() {
-      this.val = this.upc_val;
+        this.val = "0028400040112";
       this.url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + this.val;
 
       
