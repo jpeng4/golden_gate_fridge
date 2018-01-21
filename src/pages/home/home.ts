@@ -4,8 +4,13 @@ import { BarcodeScanner ,BarcodeScannerOptions } from '@ionic-native/barcode-sca
 import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { AlertController } from 'ionic-angular';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+
+
+import { HttpModule } from '@angular/http';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 
 // import { HttpClient } from '@angular/common/http';
 @Component({
@@ -13,12 +18,15 @@ import 'rxjs/add/operator/toPromise';
   templateUrl: 'home.html'
 })
 export class HomePage {
+  posts: any;
+  json_string: string;
+
   users : Observable<any>;
   encodeData : string ;
   public people: any;
   encodedData : {} ;
   data = { };
-  upc_val = null;
+  upc_val = null; //barcode
   url = null;
   code = null;
   val = "null";
@@ -52,12 +60,14 @@ export class HomePage {
     makeGetRequest() {
       this.val = this.upc_val;
       this.url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + this.val;
-      this.http.get(this.url)
-      .subscribe(data => {
-       this.value = data.json();
-      }, error => {
-          console.log(JSON.stringify(error.json()));
+
+      this.http.get(this.url).map(res => res.json()).subscribe(data=> {
+        this.posts = data.items.title;
+        console.log(this.posts);
       });
+
+      JSON.stringify(this.posts);
+
   }
 
   
@@ -82,10 +92,8 @@ export class HomePage {
 
   /*view() {
     if(this.upc_val){
-      this.http.get('https://api.upcitemdb.com/prod/trial/lookup?upc=' + this.upc_val)
-      .map(res => res.json())
-      .subscribe(res => {
-        this.users = res.results;
+      this.http.get('https://api.upcitemdb.com/prod/trial/lookup?upc=' + this.upc_val).map(res = res.json()).subscribe(data => {
+        this.posts = items.title;
       }, (err) => {
         alert("Failed at loading data");
       })
