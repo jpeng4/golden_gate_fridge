@@ -2,21 +2,24 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { BarcodeScanner ,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { Http, Headers } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+// import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  scanData : {};
+  users : Observable<any>;
   encodeData : string ;
   encodedData : {} ;
   data = { };
-  users: any;
   upc_val = null;
-  val = null;
+  url = null;
+  code = null;
+  val = "null";
   value = "null";
   option :BarcodeScannerOptions;
   constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner, public http:Http) {
@@ -41,13 +44,20 @@ export class HomePage {
   encodeText()
   {
     this.val = this.upc_val;
-    let url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + this.val;
-    let request = this.http.get(url);
+    this.url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + this.val;
+    // let request = this.http.get(url);
 
-     let p = request.toPromise();
+
+
+this.http.get('https://www.reddit.com/r/gifs/top/.json?limit=2&sort=hot').map(res => res.json()).subscribe(data => {
+    this.code = data.code;
+});
+
+
+     /*let p = request.toPromise();
      p.then( data => {
         this.value = data.json();
-     })
+     })*/
   }               
   
 
