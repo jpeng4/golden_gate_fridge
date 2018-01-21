@@ -77,8 +77,12 @@ export class HomePage {
       this.val = this.upc_val;
       this.url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + this.val;
 
+      
       this.http.get(this.url).subscribe(data=> {
-        this.posts = data.items[0].title;
+          try {
+              this.posts = data.json().items[0].title;
+          } catch (e) {
+          }
         console.log(this.posts);
       });
 
