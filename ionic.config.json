@@ -1,5 +1,8 @@
 {
   "name": "ggf",
-  "app_id": "",
-  "type": "ionic-angular"
+  "app_id": "fd9d08a6",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }
