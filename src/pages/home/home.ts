@@ -6,6 +6,11 @@ import { Observable } from 'rxjs/Observable';
 import { AlertController } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+<<<<<<< HEAD
+=======
+
+// import { HttpClient } from '@angular/common/http';
+>>>>>>> 211617cd285ea562bf4eca512dcc2d9cb47c028c
 
 // import { HttpClient } from '@angular/common/http';
 @Component({
@@ -28,6 +33,7 @@ export class HomePage {
     private alertCtrl: AlertController) {
     // this.upc_val = "";
   }
+<<<<<<< HEAD
 
   scanner(){
     // console.log("Hello");
@@ -59,6 +65,39 @@ export class HomePage {
       });
   }
 
+=======
+
+  scanner(){
+    // console.log("Hello");
+    this.barcodeScanner.scan().then((barcodeData) => {
+      // Success! Barcode data is hered
+      console.log(barcodeData);
+      this.data = barcodeData;
+      this.upc_val = barcodeData.text;
+      // alert(barcodeData.text);
+     }, (err) => {
+         // An error occurred
+         console.log(err);
+     });
+     // alert(this.upc_val);
+  }
+
+  alert() {
+    alert("Hello");
+  }
+
+    makeGetRequest() {
+      this.val = this.upc_val;
+      this.url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + this.val;
+      this.http.get(this.url)
+      .subscribe(data => {
+       this.value = data.json();
+      }, error => {
+          console.log(JSON.stringify(error.json()));
+      });
+  }
+
+>>>>>>> 211617cd285ea562bf4eca512dcc2d9cb47c028c
   
  /* load() {
     
@@ -92,4 +131,8 @@ export class HomePage {
       alert("Please Scan an Item");
     }
   }*/
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 211617cd285ea562bf4eca512dcc2d9cb47c028c
