@@ -15,6 +15,7 @@ export class HomePage {
   data = { };
   users: any;
   upc_val = null;
+  val = null;
   option :BarcodeScannerOptions;
   constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner, public http:Http) {
     // this.upc_val = "";
@@ -36,14 +37,7 @@ export class HomePage {
   }
   
   encodeText(){
-    this.barcodeScanner.encode(this.barcodeScanner.Encode.TEXT_TYPE,this.encodeData).then((encodedData) => {
-
-        console.log(encodedData);
-        this.encodedData = encodedData;
-
-    }, (err) => {
-        console.log("Error occured : " + err);
-    });                 
+    this.val = null;               
   }
 
   /*view() {
