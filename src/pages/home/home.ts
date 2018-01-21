@@ -75,7 +75,7 @@ export class HomePage {
 
     makeGetRequest() {
         this.val = this.upc_val;
-      this.url = "/goto/prod/trial/lookup?upc=" + this.val;
+        this.url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + this.val;
 
       
       this.http.get(this.url).subscribe(data=> {
