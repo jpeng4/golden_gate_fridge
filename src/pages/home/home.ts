@@ -31,7 +31,7 @@ export class HomePage {
          // An error occurred
          console.log(err);
      });
-     alert(this.upc_val);
+     // alert(this.upc_val);
   }    
 
   /*view() {
