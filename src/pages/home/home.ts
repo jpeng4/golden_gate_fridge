@@ -17,7 +17,7 @@ export class HomePage {
   upc_val;
   option :BarcodeScannerOptions;
   constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner, public http:Http) {
-    this.upc_val = "";
+    // this.upc_val = "";
   }
 
   scanner(){
@@ -26,12 +26,12 @@ export class HomePage {
       // Success! Barcode data is hered
       console.log(barcodeData);
       this.data = barcodeData;
-      this.upc_val = barcodeData.text;
+      alert(barcodeData.text);
      }, (err) => {
          // An error occurred
          console.log(err);
      });
-     alert(this.upc_val);
+     // alert(this.upc_val);
   }    
 
   /*view() {
