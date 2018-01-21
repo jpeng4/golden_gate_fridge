@@ -45,10 +45,6 @@ export class HomePage {
      // alert(this.upc_val);
   }
 
-  alert() {
-    alert("Hello");
-  }
-
     makeGetRequest() {
       this.val = this.upc_val;
       this.url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + this.val;
