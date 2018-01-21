@@ -37,7 +37,7 @@ export class HomePage {
   }
   
   encodeText(){
-    this.val = null;               
+    this.val = this.upc_val;               
   }
 
   /*view() {
