@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { BarcodeScanner ,BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 @Component({
   selector: 'page-home',
@@ -16,6 +17,7 @@ export class HomePage {
   users: any;
   upc_val = null;
   val = null;
+  value = "null";
   option :BarcodeScannerOptions;
   constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner, public http:Http) {
     // this.upc_val = "";
@@ -36,21 +38,16 @@ export class HomePage {
      // alert(this.upc_val);
   }
   
-  encodeText(){
+  encodeText()
+  {
     this.val = this.upc_val;
-    if(this.val){
-      this.http.get('https://api.upcitemdb.com/prod/trial/lookup?upc=' + this.val)
-      .map(res => res.json())
-      .subscribe(res => {
-        this.users = res;
-      }, (err) => {
-        console.log(err);
-        //alert("Failed at loading data");
-      })
-    } else {
-      alert("Please scan an Item");
-      // alert("Please Scan an Item");
-    }
+    let url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + this.val;
+    let request = this.http.get(url);
+
+     let p = request.toPromise();
+     p.then( data => {
+        this.value = data.json();
+     })
   }               
   
 

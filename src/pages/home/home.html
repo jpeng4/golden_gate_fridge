@@ -19,16 +19,15 @@
       <ion-input type="text" [(ngModel)]="encodeData" aria-placeholder="Encoded text">Encoded Text</ion-input>   
       <button ion-button (click)="encodeText()">Encode Text</button> 
 
-      <ion-list>
+
+      <h2>{{value}}</h2>
+      <!--<ion-list>
           <ion-item *ngFor="let user of users">
-              <ion-avatar item-start>
-                <img src="{{user.items.images}}" alt="">  
-              </ion-avatar>
               <h2>{{user.code}}</h2>
               <h2>{{user.items.title}}</h2>
               <br/>
               <ion-note>{{user.registered}}</ion-note>
           </ion-item>
-        </ion-list>
+        </ion-list> -->
 
   </ion-content>
