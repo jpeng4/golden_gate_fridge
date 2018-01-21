@@ -14,7 +14,7 @@ export class HomePage {
   encodedData : {} ;
   data = { };
   users: any;
-  upc_val;
+  upc_val = null;
   option :BarcodeScannerOptions;
   constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner, public http:Http) {
     // this.upc_val = "";
@@ -26,7 +26,7 @@ export class HomePage {
       // Success! Barcode data is hered
       console.log(barcodeData);
       this.data = barcodeData;
-
+      this.upc_val = barcodeData.text;
       // alert(barcodeData.text);
      }, (err) => {
          // An error occurred
