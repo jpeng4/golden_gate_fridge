@@ -17,7 +17,7 @@ export class HomePage {
   upc_val;
   option :BarcodeScannerOptions;
   constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner, public http:Http) {
-
+    this.upc_val = "";
   }
 
   scanner(){
