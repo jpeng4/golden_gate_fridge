@@ -37,8 +37,22 @@ export class HomePage {
   }
   
   encodeText(){
-    this.val = this.upc_val;               
-  }
+    this.val = this.upc_val;
+    if(this.val){
+      this.http.get('https://api.upcitemdb.com/prod/trial/lookup?upc=' + this.val)
+      .map(res => res.json())
+      .subscribe(res => {
+        this.users = res;
+      }, (err) => {
+        console.log(err);
+        //alert("Failed at loading data");
+      })
+    } else {
+      alert("Please scan an Item");
+      // alert("Please Scan an Item");
+    }
+  }               
+  
 
   /*view() {
     if(this.upc_val){
