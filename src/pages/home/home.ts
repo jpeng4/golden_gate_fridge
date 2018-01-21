@@ -50,7 +50,7 @@ export class HomePage {
 
 
 this.http.get('https://www.reddit.com/r/gifs/top/.json?limit=2&sort=hot').map(res => res.json()).subscribe(data => {
-    this.code = data.code;
+    this.code = data;
 });
 
 
