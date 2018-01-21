@@ -57,6 +57,22 @@ export class HomePage {
     alert("Hello");
   }
 
+
+  /*makeGetRequest() {
+      this.http.get("https://api.upcitemdb.com/prod/trial/lookup?upc=" + this.upc_val)
+          .subscribe(data => {
+              var alert = Alert.create({
+                  title: data.json().items[0].title,
+                  button: ["close"]
+
+              });
+              this.navCtrl.present(alert);
+
+
+          }
+              */
+
+
     makeGetRequest() {
       this.val = this.upc_val;
       this.url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + this.val;
@@ -66,9 +82,21 @@ export class HomePage {
         console.log(this.posts);
       });
 
-      JSON.stringify(this.posts);
 
   }
+
+    
+
+
+    /*goToResults() {
+        this.upc_val = "0028400040112";
+        this.url = "https://api.upcitemdb.com/prod/trial/lookup?upc=" + this.val;
+
+        this.http.get(this.url).map(res => res.json()).subscribe(data => {
+            this.posts = data.items[0].title;
+            console.log(this.posts);
+        });
+    }*/
 
   
  /* load() {

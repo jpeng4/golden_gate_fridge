@@ -20,6 +20,7 @@ import { AngularFireModule } from 'angularfire2';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import 'rxjs/add/operator/map';
 
 const firebaseConfig = {
     apiKey: "AIzaSyAXWuAQCUsfqeRZ8AfD6flTRGPNRWHjnX8",
